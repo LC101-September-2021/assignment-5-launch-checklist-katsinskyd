@@ -36,23 +36,23 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoMass) {
     } else if (validateItems[2] === "Not a Number" || validateItems[3] === "Not a Number") {
         alert("Fuel Level and Cargo Mass must be entered as numbers.");
     } else {          
-        list[1].innerHTML = `Pilot ${pilot} Ready`;
-        list[2].innerHTML = `Co-pilot ${copilot} Ready`;
+        list[1].innerHTML = `Pilot ${pilot} is ready for launch`;
+        list[2].innerHTML = `Co-pilot ${copilot} is ready for launch`;
 
         function launchNotReady() {
-            list[0].innerHTML = "Shuttle not ready for launch";
-            list[0].style.color = "red";
+            list[0].innerHTML = "Shuttle Not Ready for Launch";
+            list[0].style.color = "rgb(199, 37, 78)";
         };
 
         if (fuelLevel < 10000) {
-            list[3].innerHTML = "There is not enough fuel for the journey.";
+            list[3].innerHTML = "Fuel level too low for launch";
             launchNotReady();
         } else if (cargoMass > 10000) {
-            list[4].innerHTML = "There is too much mass for the shuttle to take off.";
+            list[4].innerHTML = "Cargo mass too heavy for launch";
             launchNotReady();
         } else {
             list[0].innerHTML = "Shuttle is ready for launch";
-            list[0].style.color = "green";
+            list[0].style.color = "rgb(65, 159, 106)";
         };
 
         document.getElementById("faultyItems").style.visibility = "visible";
@@ -63,12 +63,11 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoMass) {
 async function myFetch() {
     let planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json");
     let returnedPlanets = await planetsReturned.json();
-
     return returnedPlanets;
 };
 
 function pickPlanet(planets) {
-    return Math.floor(Math.random() * planets.length)
+    return planets[Math.floor(Math.random() * planets.length)]
 };
 
 module.exports.addDestinationInfo = addDestinationInfo;
