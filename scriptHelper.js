@@ -36,22 +36,22 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoMass) {
     } else if (validateItems[2] === "Not a Number" || validateItems[3] === "Not a Number") {
         alert("Fuel Level and Cargo Mass must be entered as numbers.");
     } else {          
-        list[1].innerHTML = `Pilot ${pilot} is ready for launch`;
-        list[2].innerHTML = `Co-pilot ${copilot} is ready for launch`;
+        list[1].textContent = `Pilot ${pilot} is ready for launch`;
+        list[2].textContent = `Co-pilot ${copilot} is ready for launch`;
 
         function launchNotReady() {
-            list[0].innerHTML = "Shuttle Not Ready for Launch";
+            list[0].textContent = "Shuttle Not Ready for Launch";
             list[0].style.color = "rgb(199, 37, 78)";
         };
 
         if (fuelLevel < 10000) {
-            list[3].innerHTML = "Fuel level too low for launch";
+            list[3].textContent = "Fuel level too low for launch";
             launchNotReady();
         } else if (cargoMass > 10000) {
-            list[4].innerHTML = "Cargo mass too heavy for launch";
+            list[4].textContent = "Cargo mass too heavy for launch";
             launchNotReady();
         } else {
-            list[0].innerHTML = "Shuttle is ready for launch";
+            list[0].textContent = "Shuttle is ready for launch";
             list[0].style.color = "rgb(65, 159, 106)";
         };
 
