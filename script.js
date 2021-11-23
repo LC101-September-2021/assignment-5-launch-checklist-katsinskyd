@@ -7,8 +7,7 @@ window.addEventListener("load", function() {
     const copilotName = document.querySelector("input[name=copilotName]");
     const fuelLevel = document.querySelector("input[name=fuelLevel]");
     const cargoMass = document.querySelector("input[name=cargoMass]");
-    const list = [document.getElementById("launchStatus"), document.getElementById("pilotStatus"), 
-        document.getElementById("copilotStatus"), document.getElementById("fuelStatus"), document.getElementById("cargoStatus")]
+    const list = document.getElementById("faultyItems")
 
     document.querySelector("form").addEventListener("submit", function(event) {
         formSubmission(document, list, pilotName.value, copilotName.value, fuelLevel.value, cargoMass.value);
