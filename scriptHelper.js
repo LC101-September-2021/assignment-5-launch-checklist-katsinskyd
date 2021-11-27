@@ -53,7 +53,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoMass) {
             document.getElementById("cargoStatus").innerHTML = "Cargo mass too heavy for launch";
             launchNotReady();
         } else {
-            launchStatus.innerHTML = "Shuttle is ready for launch";
+            launchStatus.innerHTML = "Shuttle is Ready for Launch";
             launchStatus.style.color = "rgb(65, 159, 106)";
         };
 
